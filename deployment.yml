@@ -1,4 +1,5 @@
-- hosts: prod
+- hosts: all
+  become: yes
 
   tasks:
     - name: download tomcat from dlcdn
