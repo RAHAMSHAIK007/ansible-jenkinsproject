@@ -5,23 +5,17 @@
     - name: download tomcat from dlcdn
       get_url:
         url: "https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.74/bin/apache-tomcat-9.0.74.tar.gz"
-        dest: "/opt/"
+        dest: "/root/"
 
     - name: untar the apache file
       command: tar -zxvf apache-tomcat-9.0.74.tar.gz
 
-    - name: create a user
-      user: name=jenkins state=present
+   
 
     - name: rename the tomcat
-      command: mv /opt/apache-tomcat-9.0.74 /opt/tomcat
+      command: mv /root/apache-tomcat-9.0.74 /root/tomcat
       
-    - name: change owner
-      file:
-        path: /opt/tomcat
-        owner: jenkins
-        group: jenkins
-     
+    
 
     - name: install java
       command: yum install java-1.8.0-openjdk -y
@@ -29,11 +23,11 @@
     - name: setting the roles in tomcat-user.xml file
       template:
         src: tomcat-users.xml
-        dest: /opt/tomcat/conf/tomcat-users.xml
+        dest: /root/tomcat/conf/tomcat-users.xml
 
     - name: delete two lines in context.xml
       template:
         src: context.xml
-        dest: /opt/tomcat/webapps/manager/META-INF/context.xml
+        dest: /root/tomcat/webapps/manager/META-INF/context.xml
     - name: start the tomcat
-      shell: nohup /opt/tomcat/bin/startup.sh
+      shell: nohup /root/tomcat/bin/startup.sh
