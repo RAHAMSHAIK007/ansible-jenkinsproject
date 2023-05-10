@@ -13,9 +13,6 @@
     - name: create a user
       user: name=jenkins state=present
 
-    - name: create a group
-      group: name=jenkins state=present
-
     - name: rename the tomcat
       command: mv /opt/apache-tomcat-9.0.74 /opt/tomcat
       owner: jenkins
