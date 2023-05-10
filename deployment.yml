@@ -15,8 +15,7 @@
 
     - name: rename the tomcat
       command: mv /opt/apache-tomcat-9.0.74 /opt/tomcat
-      owner: jenkins
-      group: jenkins
+     
 
     - name: install java
       command: yum install java-1.8.0-openjdk -y
