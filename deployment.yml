@@ -9,7 +9,7 @@
 
     - name: untar the apache file
       unarchive:
-        src: /root/apache-tomcat-9.0.74.tar.gz
+        src: apache-tomcat-9.0.74.tar.gz
         dest: /root/
         
 
