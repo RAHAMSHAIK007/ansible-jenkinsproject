@@ -1,6 +1,7 @@
 ---
 - hosts: all
   become: yes
+  connection: ssh
   tasks:
     - name: download tomcat from dlcdn
       get_url:
@@ -8,9 +9,7 @@
         dest: "/root/"
 
     - name: untar the apache file
-      unarchive:
-        src: apache-tomcat-9.0.74.tar.gz
-        dest: /root/
+      command: tar -zxvf apache-tomcat-9.0.74.tar.gz
         
 
    
