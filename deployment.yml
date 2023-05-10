@@ -15,6 +15,9 @@
 
     - name: rename the tomcat
       command: mv /opt/apache-tomcat-9.0.74 /opt/tomcat
+      
+    - name: change owner
+      command: chown jenkins:jenkins tomcat -R
      
 
     - name: install java
