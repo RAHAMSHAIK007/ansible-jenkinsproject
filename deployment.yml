@@ -8,8 +8,7 @@
         dest: /opt/
     - name: untar the apache file
       command: tar -zxvf /opt/apache-tomcat-9.0.74.tar.gz
-      owner: jenkins
-      group: jenkins
+      
     - name: rename the tomcat
       command: mv /opt/apache-tomcat-9.0.74 /opt/tomcat
     - name: install java
